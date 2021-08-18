@@ -1,0 +1,35 @@
+{% extends "base.html" %} 
+{% load static %}
+
+{% block title %} 
+My Blog 
+{% endblock %} 
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "blog/post.css" %}" />
+  <link rel="stylesheet" href="{% static "blog/index.css" %}" />
+{% endblock %}
+
+{% block content %}
+<section id="welcome">
+  <header>
+    <img src="{{ author.image.url }}" alt="{{ author.name }}">
+    <h2>MISHAMASHI'S BLOG</h2>
+  </header>
+  <p>Hi, I I'm Michael and this is my django project - blog!</p>
+</section>
+
+<section id="latest-posts">
+  <h2>My Latest Thoughts</h2>
+  <ul>
+    {% for post in posts %}
+      {% include "blog/includes/post.html" %}
+    {% endfor %}
+  </ul>
+</section>
+
+<section id="about">
+  <h2>What I Do</h2>
+  {{ author.about_me }}
+</section>
+{% endblock %}
