@@ -14,8 +14,7 @@
 {% if comment_form.errors %}
   <div id="alert">
     <h2>Saving the comment failed!</h2>
-    <p>Please check the comment form below the post and fix your erros.</p>
-    <a href="#comment-form">Fix!</a>
+    <p>Please check your comment below and fix the errors.</p>
   </div>
 {% endif %}
 
@@ -23,7 +22,7 @@
   <h2>{{ post.title }}</h2>
   <div>
     {% for tag in tags %}
-      <span class="tag">{{ tag.caption }}</span>
+      {{ tag.caption }}
     {% endfor %}
   </div>
   <article>
